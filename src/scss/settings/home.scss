@@ -1,0 +1,34 @@
+.header {
+    height: 963px;
+    width: 2241px;
+    display: flex;
+    .header_image {
+        height: 100%;
+        width: 885px;
+    }
+    .top_bar {
+        height: 95px;
+        width: 683px;
+        margin-top:37px;
+    .register {
+        display: flex;
+        justify-content: flex-end;
+        .SignUp {
+            border: 0.75px solid #FAD648;
+        }
+    }
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+    }
+    }
+    .announcement {
+        margin-top : 210px;
+        .announcement_tittle {
+            width: 674px;
+            height: 107px;
+            text-align: center;
+            font-size: 38px;
+        }
+    }
+}
