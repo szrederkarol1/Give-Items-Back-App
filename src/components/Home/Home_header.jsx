@@ -1,5 +1,5 @@
-import "../../scss/settings/home.scss";
-import { useNavigate, Link } from "react-router-dom";
+import "../../scss/settings/Home/home_header.scss";
+import { Link } from "react-router-dom";
 
 const Home_header = () => {
   return (
