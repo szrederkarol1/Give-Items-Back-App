@@ -1,34 +1,117 @@
+$textDecoration: none;
+@mixin navigationFont {
+  text-decoration: $textDecoration;
+  color: #3c3c3c;
+}
+
 .header {
-    height: 963px;
-    width: 2241px;
-    display: flex;
-    .header_image {
-        height: 100%;
-        width: 885px;
-    }
-    .top_bar {
-        height: 95px;
-        width: 683px;
-        margin-top:37px;
+  position: relative;
+  left: -483px;
+  height: 963px;
+  width: 2241px;
+  display: flex;
+  justify-content: center;
+  .header_image {
+    position: relative;
+    left: -111px;
+    height: 100%;
+    width: 1368px;
+    background: url("../../assets/Home-Hero-Image.jpg") padding-box;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 66px;
+  }
+  .top_bar {
+    height: 95px;
+    width: 683px;
+    margin-top: 37px;
     .register {
-        display: flex;
-        justify-content: flex-end;
-        .SignUp {
-            border: 0.75px solid #FAD648;
-        }
+      display: flex;
+      justify-content: flex-end;
+      text-decoration: none;
+      align-items: center;
+      .SignUp {
+        border: 0.75px solid #fad648;
+        text-decoration: $textDecoration;
+        color: #737373;
+        font-size: 13px;
+        padding: 10px 9px 10px 9px;
+      }
+      .SignIn {
+        margin-right: 19px;
+        text-decoration: $textDecoration;
+        color: #737373;
+        font-size: 14px;
+      }
     }
     .navigation {
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 26px;
+      font-size: 18px;
+      align-items: center;
+
+      .start {
+        @include navigationFont;
+        border: 0.75px solid #3c3c3c;
+        padding: 9px 20px;
+      }
+      .whatIs {
+        @include navigationFont;
+      }
+      .aboutUs {
+        @include navigationFont;
+      }
+      .fundation {
+        @include navigationFont;
+      }
+      .contact {
+        @include navigationFont;
+      }
     }
+  }
+  .announcement {
+    margin-top: 210px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    .announcement_tittle {
+      width: 674px;
+      height: 107px;
+      text-align: center;
+      letter-spacing: -0.76px;
+      font-size: 42px;
     }
-    .announcement {
-        margin-top : 210px;
-        .announcement_tittle {
-            width: 674px;
-            height: 107px;
-            text-align: center;
-            font-size: 38px;
+    .ornament {
+      background: url("../../assets/Decoration.svg");
+      background-repeat: no-repeat;
+      height: 33px;
+      width: 253px;
+      margin-left: 226px;
+    }
+    .interactions {
+      display: flex;
+      justify-content: center;
+      margin-top: 65px;
+      font-size: 36px;
+      .give_back {
+        border: 0.75px solid #3c3c3c;
+        margin-right: 44px;
+        text-decoration: none;
+        .give_back_paragraph {
+          color: #3c3c3c;
+          padding: 13px 93px;
         }
+      }
+      .arrange {
+        border: 0.75px solid #3c3c3c;
+        text-decoration: none;
+      }
+      .arrange_paragraph {
+        color: #3c3c3c;
+        padding: 13px 51px;
+      }
     }
+  }
 }
