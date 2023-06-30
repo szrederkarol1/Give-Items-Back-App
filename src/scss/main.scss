@@ -1,12 +1,12 @@
-@import url(./reset.css);
-@import url(./settings/_fonts.scss);
-@import url(./settings/_colors.scss);
+html {
+  scroll-behavior: smooth;
 
-body {
-  width: 1900px;
-  height: 5080px;
-  #root {
-    width: 100%;
-    height: 100%;
+  body {
+    width: 1900px;
+    height: 5080px;
+    #root {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

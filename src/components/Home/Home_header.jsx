@@ -20,10 +20,10 @@ const Home_header = () => {
               <a href="Start" className="start">
                 Start
               </a>
-              <a href="What_is" className="whatIs">
+              <a href="#What_is" className="whatIs">
                 O co chodzi?
               </a>
-              <a href="About us" className="aboutUs">
+              <a href="#About_us" className="aboutUs">
                 O nas
               </a>
               <a href="foundation" className="fundation">

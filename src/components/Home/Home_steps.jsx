@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Steps = () => {
   return (
     <>
+      <a name="What_is"></a>
       <div className="container_steps">
         <div className="title_steps">
           <span className="title">Wystarczą 4 proste kroki</span>
