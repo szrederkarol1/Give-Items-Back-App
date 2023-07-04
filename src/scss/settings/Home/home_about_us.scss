@@ -4,8 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 80px;
   .about_us {
-    width: 657px;
+    width: 958px;
     height: 475px;
     display: flex;
     flex-direction: column;
@@ -20,10 +21,15 @@
       background: url(../../../assets/Decoration.svg);
       width: 253px;
       height: 33px;
+      margin: 26px 0 55px 0;
     }
     .description {
       text-align: center;
       letter-spacing: -0.6px;
+      font-size: 30px;
+      width: 536px;
+      height: 208px;
+      line-height: 46px;
     }
     .signature {
       position: relative;
