@@ -31,7 +31,7 @@ const Cards = () => {
                 którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu
                 pomagają i czego potrzebują.
               </p>
-              <div className="first_fundation">
+              <div className="fundation">
                 <div className="name">
                   <p className="name_fundation">Fundacja “Dbam o Zdrowie”</p>
                   <p className="target">
@@ -62,7 +62,11 @@ const Cards = () => {
                 </div>
                 <p className="type">ubrania, jedzenie, ciepłe koce</p>
               </div>
-              <div className="pages"><p className="first_page">1</p><p className="secondary_page">2</p><p className="third_page">2</p></div>
+              <div className="pages">
+                <p className="first_page">1</p>
+                <p className="secondary_page">2</p>
+                <p className="third_page">3</p>
+              </div>
             </div>
             <div className={activeDiv === 2 ? "content" : "hidden"}>
               <p className="describtion_fundation">
@@ -98,6 +102,10 @@ const Cards = () => {
                   </p>
                 </div>
                 <p className="type">Mi, quis, hendrerit, dolor</p>
+              </div>
+              <div className="pages">
+                <p className="first_page">1</p>
+                <p className="secondary_page">2</p>
               </div>
             </div>
             <div className={activeDiv === 3 ? "content" : "hidden"}>
