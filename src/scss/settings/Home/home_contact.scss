@@ -1,0 +1,98 @@
+.contact_container {
+  width: 1900px;
+  height: 1026px;
+  background: url("../../../assets/Background-Contact-Form.jpg");
+  opacity: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 193px;
+  .container_right {
+    height: 507px;
+    width: 528px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 142px;
+    .container_title {
+      width: 358px;
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      .title {
+        font-size: 38px;
+        letter-spacing: -0.76px;
+      }
+      .ornament {
+        width: 253px;
+        height: 33px;
+        background: url(../../../assets/Decoration.svg);
+      }
+    }
+    .form_container {
+      display: flex;
+      flex-direction: column;
+      width: 528px;
+      height: 327px;
+      align-items: flex-end;
+      .send_message {
+        border: 0.75px solid #3c3c3c;
+        width: 150px;
+        height: 50px;
+        margin-top: 44px;
+        cursor: pointer;
+      }
+      .top_form {
+        display: flex;
+        margin-bottom: 40px;
+        .form_name {
+          width: 256px;
+          height: 62px;
+          display: flex;
+          flex-direction: column;
+          margin-right: 16px;
+          font-weight: bold;
+        }
+        input {
+          border: none;
+          border-bottom: 2px solid #3c3c3c60;
+          background-color: transparent;
+          padding-bottom: 5px;
+          &::placeholder {
+            color: #3c3c3c26;
+            font-size: 16px;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+        .form_email {
+          width: 256px;
+          height: 62px;
+          display: flex;
+          flex-direction: column;
+          font-weight: bold;
+        }
+      }
+      .form_bottom {
+        width: 528px;
+        height: 135px;
+        font-weight: bold;
+        textarea {
+          width: 528px;
+          height: 97px;
+          border: none;
+          border-bottom: 2px solid #3c3c3c60;
+          background-color: transparent;
+          resize: none;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}
