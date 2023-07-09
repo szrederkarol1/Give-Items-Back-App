@@ -1,7 +1,10 @@
+@import "../colors";
+@import "../fonts";
+
 $textDecoration: none;
 @mixin navigationFont {
   text-decoration: $textDecoration;
-  color: #3c3c3c;
+  color: $color-dark-grey;
 }
 
 .header {
@@ -33,14 +36,14 @@ $textDecoration: none;
       .SignUp {
         border: 0.75px solid #fad648;
         text-decoration: $textDecoration;
-        color: #737373;
+        color: $color-grey;
         font-size: 13px;
         padding: 10px 9px 10px 9px;
       }
       .SignIn {
         margin-right: 19px;
         text-decoration: $textDecoration;
-        color: #737373;
+        color: $color-grey;
         font-size: 14px;
       }
     }
@@ -53,7 +56,7 @@ $textDecoration: none;
 
       .start {
         @include navigationFont;
-        border: 0.75px solid #3c3c3c;
+        border: 0.75px solid $color-dark-grey;
         padding: 9px 20px;
       }
       .whatIs {
@@ -96,20 +99,20 @@ $textDecoration: none;
       margin-top: 65px;
       font-size: 36px;
       .give_back {
-        border: 0.75px solid #3c3c3c;
+        border: 0.75px solid $color-dark-grey;
         margin-right: 44px;
         text-decoration: none;
         .give_back_paragraph {
-          color: #3c3c3c;
+          color: $color-dark-grey;
           padding: 13px 93px;
         }
       }
       .arrange {
-        border: 0.75px solid #3c3c3c;
+        border: 0.75px solid $color-dark-grey;
         text-decoration: none;
       }
       .arrange_paragraph {
-        color: #3c3c3c;
+        color: $color-dark-grey;
         padding: 13px 51px;
       }
     }

@@ -26,10 +26,10 @@ const Home_header = () => {
               <a href="#About_us" className="aboutUs">
                 O nas
               </a>
-              <a href="foundation" className="fundation">
+              <a href="#Fundation" className="fundation">
                 Fundacja i organizacje
               </a>
-              <a href="Contact" className="contact">
+              <a href="#Contact" className="contact">
                 Kontakt
               </a>
             </div>

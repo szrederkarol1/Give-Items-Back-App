@@ -9,6 +9,7 @@ const Cards = () => {
 
   return (
     <>
+      <a name="Fundation"></a>
       <div className="section_fundation">
         <div className="container_fundations">
           <div className="tittle_cards">Komu pomagamy?</div>
