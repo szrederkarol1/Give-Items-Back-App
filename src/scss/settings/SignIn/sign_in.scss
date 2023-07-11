@@ -1,0 +1,127 @@
+@import "../colors";
+@import "../fonts";
+
+$textDecoration: none;
+
+@mixin navigationFont {
+  text-decoration: $textDecoration;
+  color: $color-dark-grey;
+}
+.container_navigation {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 139px;
+  margin-top: 37px;
+  .top_bar {
+    height: 95px;
+    width: 683px;
+    margin-top: 37px;
+    .register {
+      display: flex;
+      justify-content: flex-end;
+      text-decoration: none;
+      align-items: center;
+      .SignUp {
+        border: 0.75px solid $color-yellow;
+        text-decoration: $textDecoration;
+        color: $color-grey;
+        font-size: 13px;
+        padding: 10px 9px 10px 9px;
+      }
+      .SignIn {
+        margin-right: 19px;
+        text-decoration: $textDecoration;
+        color: $color-grey;
+        font-size: 14px;
+      }
+    }
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 26px;
+      font-size: 18px;
+      align-items: center;
+
+      .start {
+        @include navigationFont;
+        border: 0.75px solid $color-dark-grey;
+        padding: 9px 20px;
+      }
+      .whatIs {
+        @include navigationFont;
+      }
+      .aboutUs {
+        @include navigationFont;
+      }
+      .fundation {
+        @include navigationFont;
+      }
+      .contact {
+        @include navigationFont;
+      }
+    }
+  }
+}
+
+.container_signin {
+  width: 1858px;
+  height: 810px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .content_signin {
+    height: 500px;
+    width: 504px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    .title_ornament {
+      width: 253px;
+      height: 113px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .title {
+        font-size: 40px;
+        letter-spacing: -0.8px;
+      }
+      .ornament {
+        width: 253px;
+        height: 33px;
+        background: url(../../../assets/Decoration.svg);
+      }
+    }
+    .signin_with_navigation {
+      width: 504px;
+      height: 325px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .grey_content {
+        width: 385px;
+        height: 235px;
+        background-color: $color-white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      .signup_signin {
+        width: 504px;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        button {
+          width: 117px;
+          height: 50px;
+          background-color: transparent;
+          border: 0.75px solid $color-dark-grey;
+        }
+      }
+    }
+  }
+}
