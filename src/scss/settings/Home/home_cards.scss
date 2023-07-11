@@ -1,6 +1,9 @@
+@import "../colors";
+@import "../fonts";
+
 @mixin button {
   font-size: 24px;
-  background-color: white;
+  background-color: transparent;
   border: none;
   cursor: pointer;
 }
@@ -36,7 +39,7 @@
       margin-bottom: 70px;
       .fundations {
         @include button;
-        border: 0.75px solid #3c3c3c;
+        border: 0.75px solid $color-dark-grey;
         padding: 23px 42px 23px 42px;
       }
       .organisation {
@@ -67,7 +70,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid $color-grey;
         .name_fundation {
           font-size: 26px;
         }
@@ -81,7 +84,7 @@
         justify-content: center;
         align-items: center;
         .first_page {
-          border: 0.75px solid #3c3c3c;
+          border: 0.75px solid $color-dark-grey;
           padding: 13px 15px 13px 15px;
           margin-right: 37px;
           font-size: 18px;

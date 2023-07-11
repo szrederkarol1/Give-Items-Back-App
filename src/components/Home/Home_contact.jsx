@@ -6,18 +6,19 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
 
     if (name.trim() === "") {
-      newErrors.name = "Proszę wpisać swoje imię.";
+      newErrors.name = "Podane imię jest nieprawidłowe!";
     }
 
     if (email.trim() === "") {
-      newErrors.email = "Proszę wpisać swój email.";
+      newErrors.email = "Proszę wpisać swój email!";
     } else if (!isValidEmail(email)) {
-      newErrors.email = "Proszę wpisać poprawny adres email.";
+      newErrors.email = "Podany email jest nieprawidłowy!";
     }
 
     if (message.trim() === "") {
@@ -30,7 +31,7 @@ const Contact = () => {
   };
 
   const isValidEmail = (email) => {
-    // Prosta walidacja adresu email
+    // Wlidacja adresu email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
@@ -51,6 +52,8 @@ const Contact = () => {
       setEmail("");
       setMessage("");
       setErrors({});
+
+      setShowSuccess(true);
     }
   };
 
@@ -100,6 +103,21 @@ const Contact = () => {
             {errors.message && <span className="error">{errors.message}</span>}
           </div>
           <button type="submit">Wyślij</button>
+          <div>
+            {showSuccess && (
+              <div
+                style={{
+                  color: "green",
+                  margin: "5px 0 5px 0",
+                  fontSize: "26px",
+                  textAlign: "center",
+                }}
+              >
+                Wiadomość została wysłana!<br></br>
+                Wkrótce się skontaktujemy!
+              </div>
+            )}
+          </div>
         </form>
       </div>
     </>

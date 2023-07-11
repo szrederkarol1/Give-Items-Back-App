@@ -1,3 +1,6 @@
+@import "../colors";
+@import "../fonts";
+
 @mixin stepsStyle {
   width: 130px;
   height: 172px;
@@ -32,7 +35,7 @@
       font-size: 38px;
       text-align: center;
       letter-spacing: -0.76px;
-      color: #3c3c3c;
+      color: $color-dark-grey;
     }
     .ornament {
       background: url("../../../assets/Decoration.svg");
@@ -44,7 +47,7 @@
   .steps {
     height: 325px;
     width: 100%;
-    background: #f0f1f1;
+    background: $color-white;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -91,7 +94,7 @@
   .give_items_container {
     width: 310px;
     height: 120px;
-    border: 0.75px solid #3c3c3c;
+    border: 0.75px solid $color-dark-grey;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,7 +102,7 @@
     .give_items {
       font-size: 36px;
       line-height: 45px;
-      color: #3c3c3c;
+      color: $color-dark-grey;
       text-align: center;
       text-decoration: none;
     }

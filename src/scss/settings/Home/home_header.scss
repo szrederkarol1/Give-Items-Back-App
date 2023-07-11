@@ -34,7 +34,7 @@ $textDecoration: none;
       text-decoration: none;
       align-items: center;
       .SignUp {
-        border: 0.75px solid #fad648;
+        border: 0.75px solid $color-yellow;
         text-decoration: $textDecoration;
         color: $color-grey;
         font-size: 13px;

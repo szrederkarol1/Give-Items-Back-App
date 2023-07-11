@@ -1,6 +1,9 @@
+@import "../colors";
+@import "../fonts";
+
 .section_about_us {
   height: 935px;
-  background: #f0f1f1;
+  background: $color-white;
   display: flex;
   justify-content: center;
   align-items: center;
