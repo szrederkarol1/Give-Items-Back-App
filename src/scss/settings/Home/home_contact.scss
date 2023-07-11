@@ -1,69 +1,76 @@
-/* Kolorystyka */
-$primary-color: #007bff;
-$error-color: #dc3545;
-
-/* Globalne style */
-* {
-  box-sizing: border-box;
-}
-
-/* Kontener formularza */
-.form-container {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Formularz */
-.form {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 6px;
-}
-
-/* Grupa formularza */
-.form-group {
-  margin-bottom: 20px;
-}
-
-/* Etykieta formularza */
-.form-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: $primary-color;
-}
-
-/* Pole tekstowe formularza */
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s ease-in-out;
-
-  &.error {
-    border-color: $error-color;
+.container_contact {
+  position: relative;
+  width: 1900px;
+  height: 1026px;
+  background: #ffffffc9 0% 0% no-repeat padding-box;
+  background-image: url(../../../assets/Background-Contact-Form.jpg);
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  .title_email {
+    position: absolute;
+    right: 340px;
+    height: 500px;
+    width: 358px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title_contact {
+      font-size: 38px;
+      letter-spacing: -0.76px;
+    }
+    .ornament {
+      width: 253px;
+      height: 33px;
+      background: url(../../../assets/Decoration.svg);
+      margin-top: 25px;
+    }
   }
-}
-
-/* Wiadomość błędu */
-.error-message {
-  color: $error-color;
-}
-
-/* Przycisk formularza */
-.form-button {
-  padding: 10px 20px;
-  background-color: $primary-color;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: darken($primary-color, 10%);
+  .container_form {
+    position: absolute;
+    right: 250px;
+    width: 528px;
+    height: 327px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    .name_email {
+      display: flex;
+      .name {
+        width: 256px;
+        height: 62px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 16px;
+      }
+      .email {
+        width: 256px;
+        height: 62px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+    .message {
+      width: 528px;
+      height: 135px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      #message {
+        height: 97px;
+      }
+    }
+    button {
+      border: 0.75px solid #3c3c3c;
+      width: 150px;
+      height: 50px;
+      background-color: transparent;
+      font-size: 18px;
+    }
   }
 }
