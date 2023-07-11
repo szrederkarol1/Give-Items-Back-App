@@ -18,7 +18,7 @@ const SignIn = () => {
             <Link to="/" className="start">
               Start
             </Link>
-            <a href="#What_is" className="whatIs">
+            <a href="/What_is" className="whatIs">
               O co chodzi?
             </a>
             <a href="#About_us" className="aboutUs">
@@ -53,7 +53,9 @@ const SignIn = () => {
               </div>
             </div>
             <div className="signup_signin">
-              <Link to="/rejestracja">Załóż konto</Link>
+              <Link to="/rejestracja" className="signup">
+                Załóż konto
+              </Link>
               <button type="submit">Zaloguj się</button>
             </div>
           </div>
