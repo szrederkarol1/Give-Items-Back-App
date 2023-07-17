@@ -1,7 +1,35 @@
+import { useState } from "react";
 import "../../scss/settings/SignIn/sign_in.scss";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
+  const [email, setEmail] = useState("");
+  const [isValid, setIsValid] = useState(true);
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (validateEmail(email)) {
+      // Wykona akcję po poprawnej walidacji
+
+      setIsValid(true);
+      // Kontynuuje przetwarzanie formularza lub wykonuje inne działania
+    } else {
+      // Wykona akcję w przypadku niepoprawnego adresu e-mail
+
+      setIsValid(false);
+    }
+  };
+
+  const validateEmail = (email) => {
+    // Walidacja adresu e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   return (
     <>
       <div className="container_navigation">
@@ -39,13 +67,14 @@ const SignIn = () => {
             <p className="title">Zaloguj się</p>
             <div className="ornament"></div>
           </div>
-          <div className="signin_with_navigation">
+          <form className="signin_with_navigation"  onSubmit={handleSubmit}>
             <div className="grey_content">
-              <div className="email">
+              <form className="email">
                 <label>Email</label>
                 <br></br>
-                <input type="text"></input>
-              </div>
+                <input type="email" value={email} onChange={handleEmailChange}></input>
+                {!isValid && <p>Proszę wpisać poprawny email</p>}
+              </form>
               <div className="password">
                 <label>Hasło</label>
                 <br></br>
@@ -58,7 +87,7 @@ const SignIn = () => {
               </Link>
               <button type="submit">Zaloguj się</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>
