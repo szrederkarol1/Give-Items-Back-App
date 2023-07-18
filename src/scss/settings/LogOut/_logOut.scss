@@ -1,0 +1,63 @@
+@import "../colors";
+@import "../fonts";
+
+$textDecoration: none;
+
+@mixin navigationFont {
+  text-decoration: $textDecoration;
+  color: $color-dark-grey;
+}
+
+.container_navigation {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 139px;
+  margin-top: 37px;
+  .top_bar {
+    height: 95px;
+    width: 683px;
+    margin-top: 37px;
+    .register {
+      display: flex;
+      justify-content: flex-end;
+      text-decoration: none;
+      align-items: center;
+      .SignUp {
+        border: 0.75px solid $color-yellow;
+        text-decoration: $textDecoration;
+        color: $color-grey;
+        font-size: 13px;
+        padding: 10px 9px 10px 9px;
+      }
+      .SignIn {
+        margin-right: 19px;
+        text-decoration: $textDecoration;
+        color: $color-grey;
+        font-size: 14px;
+      }
+    }
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 26px;
+      font-size: 18px;
+      align-items: center;
+
+      .start {
+        @include navigationFont;
+      }
+      .whatIs {
+        @include navigationFont;
+      }
+      .aboutUs {
+        @include navigationFont;
+      }
+      .fundation {
+        @include navigationFont;
+      }
+      .contact {
+        @include navigationFont;
+      }
+    }
+  }
+}
