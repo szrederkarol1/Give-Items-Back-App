@@ -8,11 +8,17 @@ $textDecoration: none;
   color: $color-dark-grey;
 }
 
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container_navigation {
   display: flex;
   justify-content: flex-end;
   margin-right: 139px;
-  margin-top: 37px;
+  margin-top: 50px;
   .top_bar {
     height: 95px;
     width: 683px;
@@ -58,6 +64,42 @@ $textDecoration: none;
       .contact {
         @include navigationFont;
       }
+    }
+  }
+}
+
+.container_logOut {
+  width: 1858px;
+  height: 526px;
+  @include flex;
+  margin-top: 65px;
+  .content_logOut {
+    @include flex;
+    flex-direction: column;
+    width: 414px;
+    height: 253px;
+    text-align: center;
+    .title_logOut {
+      font-size: 40px;
+      letter-spacing: -0.8px;
+      margin-bottom: 25px;
+    }
+    .ornament {
+      height: 33px;
+      width: 253px;
+      background: url(../../../assets/Decoration.svg);
+      margin-bottom: 35px;
+    }
+    .button {
+      @include flex;
+      width: 150px;
+      height: 50px;
+      background-color: transparent;
+      border: 0.75px solid #3c3c3c;
+      font-size: 18px;
+      cursor: pointer;
+      text-decoration: none;
+      color: $color-dark-grey;
     }
   }
 }

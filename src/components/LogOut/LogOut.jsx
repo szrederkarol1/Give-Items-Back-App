@@ -2,8 +2,8 @@ import "../../scss/settings/LogOut/_logOut.scss";
 import { Link } from "react-router-dom";
 
 const LogOut = () => {
-    return (
-        <>
+  return (
+    <>
       <div className="container_navigation">
         <div className="top_bar">
           <div className="register">
@@ -33,8 +33,19 @@ const LogOut = () => {
           </div>
         </div>
       </div>
-        </>
-    )
-}
+      <div className="container_logOut">
+        <div className="content_logOut">
+          <p className="title_logOut">
+            Wylogowano nastąpiło<br></br>pomyślnie!
+          </p>
+          <div className="ornament"></div>
+          <Link to="/" className="button">
+            Strona Główna
+          </Link>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default LogOut;
