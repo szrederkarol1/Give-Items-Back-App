@@ -5,7 +5,7 @@ const Home_columns = () => {
     <>
       <div className="container_3columns">
         <div className="first_column">
-          <div className="number">10</div>
+          <div className="number">0</div>
           <span className="title">ODDANYCH WORKÓW</span>
           <p className="lorem">
             Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel
@@ -13,7 +13,7 @@ const Home_columns = () => {
           </p>
         </div>
         <div className="secondary_column">
-          <div className="number">5</div>
+          <div className="number">0</div>
           <span className="title">WSPARTYCH ORGANIZACJI</span>
           <p className="lorem">
             Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel
@@ -21,7 +21,7 @@ const Home_columns = () => {
           </p>
         </div>
         <div className="third_column">
-          <div className="number">7</div>
+          <div className="number">0</div>
           <span className="title">ZORGANIZOWANYCH ZBIÓREK</span>
           <p className="lorem">
             Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel

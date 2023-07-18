@@ -4,30 +4,46 @@ import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
-  const [isValid, setIsValid] = useState(true);
+  const [password, setPassword] = useState("");
+  const [isValidPassword, setIsValidPassword] = useState(true);
+  const [isValidEmail, setIsValidEmail] = useState(true);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (validateEmail(email)) {
-      // Wykona akcję po poprawnej walidacji
-
-      setIsValid(true);
-      // Kontynuuje przetwarzanie formularza lub wykonuje inne działania
-    } else {
-      // Wykona akcję w przypadku niepoprawnego adresu e-mail
-
-      setIsValid(false);
-    }
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+    setIsValidPassword(event.target.value >= 8);
   };
 
   const validateEmail = (email) => {
-    // Walidacja adresu e-mail
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    const emailCharacters = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailCharacters.test(email);
+  };
+
+  const validatePassword = (password) => {
+    return setIsValidPassword(password);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (validateEmail(email)) {
+      // Akcja po poprawnej walidacji
+      setIsValidEmail(true);
+      if (validatePassword(password)) {
+        // Akcja po poprawnej walidacji
+        setIsValidPassword(true);
+      } else {
+        // W przypadku niepoprawnego hasła
+        setIsValidPassword(false);
+      }
+      // Kontynuuje przetwarzanie formularza lub wykonuje inne działania
+    } else {
+      // w przypadku niepoprawnego adresu e-mail
+      setIsValidEmail(false);
+      setIsValidPassword(false);
+    }
   };
 
   return (
@@ -67,19 +83,36 @@ const SignIn = () => {
             <p className="title">Zaloguj się</p>
             <div className="ornament"></div>
           </div>
-          <form className="signin_with_navigation"  onSubmit={handleSubmit}>
+          <form className="signin_with_navigation" onSubmit={handleSubmit}>
             <div className="grey_content">
               <form className="email">
                 <label>Email</label>
                 <br></br>
-                <input type="email" value={email} onChange={handleEmailChange}></input>
-                {!isValid && <p>Proszę wpisać poprawny email</p>}
+                <input
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                ></input>
+                {!isValidEmail && (
+                  <p style={{ color: "red", marginTop: "5px" }}>
+                    Proszę wpisać poprawny email
+                  </p>
+                )}
               </form>
-              <div className="password">
+              <form className="password">
                 <label>Hasło</label>
                 <br></br>
-                <input type="text"></input>
-              </div>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                ></input>
+                {!isValidPassword && (
+                  <p style={{ color: "red", marginTop: "5px" }}>
+                    Wpisz conajmniej 8 znaków
+                  </p>
+                )}
+              </form>
             </div>
             <div className="signup_signin">
               <Link to="/rejestracja" className="signup">

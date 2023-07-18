@@ -1,7 +1,63 @@
 import "../../scss/settings/SignUp/sign_up.scss";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [password, setPassword] = useState("");
+  const [isValidPassword, setIsValidPassword] = useState(true);
+  const [repeatPassword, setRepeatPassword] = useState("");
+  const [isValidRepeatPassword, setIsValidRepeatPassword] = useState(true);
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+    setIsValidPassword(event.target.value.lenght >= 8);
+  };
+  const handleRepeatPasswordChange = (event) => {
+    setRepeatPassword(event.target.value);
+  };
+
+  const validateEmail = (email) => {
+    const emailCharacters = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailCharacters.test(email);
+  };
+
+  const validatePassword = (password) => {
+    return setIsValidPassword(password);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (validateEmail(email)) {
+      // Akcja po poprawnej walidacji
+      setIsValidEmail(true);
+      if (validatePassword(password)) {
+        // Akcja po poprawnej walidacji hasła
+        setIsValidPassword(true);
+        if (password === repeatPassword) {
+          // Akcja po poprawnym potwierdzeniu hasła
+          setIsValidRepeatPassword(true);
+        } else {
+          setIsValidRepeatPassword(false);
+        }
+      } else {
+        // W przypadku niepoprawnego hasła
+        setIsValidPassword(false);
+      }
+      // Kontynuuje przetwarzanie formularza lub wykonuje inne działania
+    } else {
+      // w przypadku niepoprawnego adresu e-mail
+      setIsValidEmail(false);
+      setIsValidPassword(false);
+      setIsValidRepeatPassword(false);
+    }
+  };
+
   return (
     <>
       <div className="container_navigation">
@@ -39,23 +95,50 @@ const SignUp = () => {
             <p className="title">Załóż konto</p>
             <div className="ornament"></div>
           </div>
-          <div className="signup_with_navigation">
+          <form className="signup_with_navigation" onSubmit={handleSubmit}>
             <div className="grey_content">
-              <div className="email">
+              <form className="email">
                 <label>Email</label>
                 <br></br>
-                <input type="text"></input>
-              </div>
-              <div className="password">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                ></input>
+                {!isValidEmail && (
+                  <p style={{ color: "red", marginTop: "5px" }}>
+                    Proszę wpisać poprawny email
+                  </p>
+                )}
+              </form>
+              <form
+                className="password"
+                value={password}
+                onChange={handlePasswordChange}
+              >
                 <label>Hasło</label>
                 <br></br>
-                <input type="text"></input>
-              </div>
-              <div className="repeat_password">
+                <input type="password"></input>
+                {!isValidPassword && (
+                  <p style={{ color: "red", marginTop: "5px" }}>
+                    Wpisz conajmniej 8 znaków
+                  </p>
+                )}
+              </form>
+              <form
+                className="repeat_password"
+                value={repeatPassword}
+                onChange={handleRepeatPasswordChange}
+              >
                 <label>Powtórz hasło</label>
                 <br></br>
-                <input type="text"></input>
-              </div>
+                <input type="password"></input>
+                {!isValidRepeatPassword && (
+                  <p style={{ color: "red", marginTop: "5px" }}>
+                    Niepoprawne potwierdzenie hasła
+                  </p>
+                )}
+              </form>
             </div>
             <div className="signup_signin">
               <Link to="/logowanie" className="signup">
@@ -63,7 +146,7 @@ const SignUp = () => {
               </Link>
               <button type="submit">Załóż konto</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>
