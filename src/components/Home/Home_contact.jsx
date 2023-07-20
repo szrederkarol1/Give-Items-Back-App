@@ -2,26 +2,36 @@ import "../../scss/settings/Home/home_contact.scss";
 import React, { useState } from "react";
 
 const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [errors, setErrors] = useState({});
   const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (name.trim() === "") {
+    if (formData.name.trim() === "") {
       newErrors.name = "Podane imię jest nieprawidłowe!";
     }
 
-    if (email.trim() === "") {
+    if (formData.email.trim() === "") {
       newErrors.email = "Proszę wpisać swój email!";
-    } else if (!isValidEmail(email)) {
+    } else if (!isValidEmail(formData.email)) {
       newErrors.email = "Podany email jest nieprawidłowy!";
     }
 
-    if (message.trim() === "") {
+    if (formData.message.trim() === "") {
       newErrors.message = "Proszę wpisać swoją wiadomość.";
     }
 
@@ -31,32 +41,67 @@ const Contact = () => {
   };
 
   const isValidEmail = (email) => {
-    // Wlidacja adresu email
+    // Walidacja adresu email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/myyqzjvd",
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        alert("Wiadomość została wysłana. Dziękujemy!");
+        form.reset();
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        alert(
+          "Wystąpił problem podczas wysyłania wiadomości. Spróbuj ponownie później."
+        );
+      }
+    } catch (error) {
+      console.error("Wystąpił błąd podczas wysyłania wiadomości:", error);
+    }
+
     const isValid = validateForm();
 
     if (isValid) {
-      // Wykonuje akcję, np. wysyłkę formularza
+      // Wysyłka formularza
       console.log("Formularz jest poprawny");
-      console.log("Imię:", name);
-      console.log("Email:", email);
-      console.log("Wiadomość:", message);
+      console.log("Imię:", formData.name);
+      console.log("Email:", formData.email);
+      console.log("Wiadomość:", formData.message);
 
-      // Resetuj pola formularza
-      setName("");
-      setEmail("");
-      setMessage("");
+      // Reset pól formularza
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
       setErrors({});
 
       setShowSuccess(true);
     }
   };
-
   return (
     <>
       <div className="container_contact">
@@ -72,9 +117,11 @@ const Contact = () => {
               <input
                 type="text"
                 id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Krzysztof"
+                required
               />
               {errors.name && <span className="error">{errors.name}</span>}
             </div>
@@ -84,9 +131,11 @@ const Contact = () => {
               <input
                 type="email"
                 id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="abc@xyz.pl"
+                required
               />
               {errors.email && <span className="error">{errors.email}</span>}
             </div>
@@ -96,9 +145,11 @@ const Contact = () => {
             <br></br>
             <textarea
               id="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              required
             />
             {errors.message && <span className="error">{errors.message}</span>}
           </div>
